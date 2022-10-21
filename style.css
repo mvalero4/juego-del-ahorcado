@@ -1,0 +1,515 @@
+/* Custom properties */
+
+:root{
+  --first-color: #97f500;
+  --first-alpha-color:rgb(151, 245, 0, 0.75);
+  --second-color: #282829;
+  --second-alpha-color: rgb(40, 40, 41, 0.75);
+  --third-color: rgb(10, 25, 47);
+  --third-alpha-color: rgba(10, 25, 47, 0.75);
+  --text-color: #1d1d1d;
+  --black-color: #000000ff;
+  --white-color: #ffffffff;
+  --gray-color: #ccd6f6ff;
+  --gray-light-color: #eaeef8;
+  --gray-dark-color: #8892b0ff;
+  --link-color: rgb(8, 77, 179);
+  --title-color: #333333;
+  --white-alpha-color: rgba(255, 255, 255, 0.5);
+  --black-alpha-color: rgba(0, 0, 0, 0.5);
+  
+  --aquamarine: #64ffdaff;
+  --erin: #22fc51ff;
+
+  --font: "Raleway", sans-serif;
+
+  --max-width: 1200px;
+  --header-height: 4rem;
+}
+
+
+
+/* Reset */
+
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html{
+  font-size: 62.5%;
+}
+
+body{
+  font-family: var(--font);
+  width: 100vw;
+  height: 100vh;
+  background-image: linear-gradient(45deg, rgba(131, 210, 4) 50%, rgb(151, 245, 0) 46%);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  scroll-behavior: smooth;
+}
+
+
+
+
+
+
+/* Dark mode */
+
+.dark{
+  background-image: linear-gradient(45deg, #282829 50%, #3e3e3f 46%);
+}
+
+.body-color{
+  color: var(--white-color);
+}
+
+.icons-color{
+  stroke: white;
+}
+
+.word-color{
+  text-align: center;
+  background-color: var(--first-alpha-color);
+  color: var(--second-color);
+  width: 220px;
+  height: 80px;
+  border-radius: 0 0 0.5rem 0.5rem;
+}
+
+.hidden{
+  display: none;
+}
+
+
+
+
+
+
+/* Header */
+
+header{
+  width: 100%;
+  position: fixed;
+  padding: 1rem;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  z-index: 999;
+}
+
+.switch {
+  font-size: 1.7rem;
+  position: relative;
+  display: inline-block;
+  width: 3.5em;
+  height: 2em;
+  margin-right: 3rem;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  --background: #282829;
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--background);
+  transition: .5s;
+  border-radius: 30px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 1.4em;
+  width: 1.4em;
+  border-radius: 50%;
+  left: 10%;
+  bottom: 15%;
+  box-shadow: inset 8px -4px 0px 0px #fff000;
+  background: var(--background);
+  transition: .5s;
+}
+
+input:checked + .slider {
+  background-color: rgb(151, 245, 0, 0.75);
+}
+
+input:checked + .slider:before {
+  transform: translateX(100%);
+  box-shadow: inset 15px -4px 0px 15px #fff;
+}
+
+
+
+/* Alert container */
+
+.alert-container{
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(164, 162, 162, 0.6);
+  font-size: 1.8rem;
+  color: red;
+  font-weight: bold;
+  z-index: 999;
+}
+
+.alert{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  margin: 15rem auto;
+}
+
+.alert-container .icon-head{
+  width: 40px;
+  margin-top: 1rem;
+}
+
+
+
+
+
+
+
+
+
+/* Main */
+
+main{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: 0 auto;
+}
+
+main .logo{
+  width: 150px;
+  object-fit: cover;
+  margin-top: 10rem;
+  margin-bottom: 1rem;
+  animation: logo 2s ease-in-out;
+  transition: all .5s;
+}
+
+@keyframes logo{
+  0%{
+    transform: translateX(-1000px);
+  }
+
+  100%{
+    transform: translateX(0);
+  }
+}
+
+@keyframes rotar{
+  0%{
+    transform: rotate(0deg);
+  }
+
+  25%{
+    transform: rotate(-45deg);
+  }
+
+  50%{
+    transform: rotate(0deg);
+  }
+
+  75%{
+    transform: rotate(45deg);
+  }
+
+  100%{
+    transform: rotate(0deg);
+  }
+}
+
+
+
+/************************* Container game ************************/
+
+.container-game{
+  margin: 4rem auto;
+}
+
+
+
+
+
+/* Container word */
+
+.container-word{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.added-word{
+  background-color: var(--gray-light-color);
+  box-shadow: 3px 4px 4px 4px rgba(0, 0, 0, 0.75);
+}
+
+.added-word:hover{
+  transform: scale(1.2);
+}
+
+.word{
+  text-align: center;
+  background-color: var(--second-color);
+  color: var(--first-color);
+  width: 250px;
+  height: 60px;
+  border-radius: 0 0 0.5rem 0.5rem;
+}
+
+
+
+
+
+
+
+/* Container body */
+
+.container-body{
+  position: relative;
+  background-color: var(--white-color);
+  width: 100%;
+  height: 300px;
+  border-radius: 1rem 1rem 0 0;
+  margin-bottom: 0;
+}
+
+.horca{
+  position: absolute;
+  height: 350px;
+  left: 0;
+  bottom: 0;
+}
+
+.head{
+  position: absolute;
+  top: 7.5rem;
+  left: 13.7rem;
+  width: 6rem;
+}
+
+.body{
+  position: absolute;
+  top: 13rem;
+  left: 14.2rem;
+  width: 5rem;
+}
+
+.arm1{
+  position: absolute;
+  top: 14rem;
+  left: 11.5rem;
+  width: 5rem;
+}
+
+.arm2{
+  position: absolute;
+  top: 14rem;
+  right: 9.8rem;
+  width: 5rem;
+}
+
+.leg1{
+  position: absolute;
+  bottom: 0;
+  left: 14.6rem;
+  height: 10rem;
+}
+
+.leg2{
+  position: absolute;
+  bottom: 0;
+  right: 13.2rem;
+  height: 10.2rem;
+}
+
+
+
+
+
+
+/* Container letters */
+
+.container-letters{
+  background-color: var(--second-color);
+  color: var(--first-color);
+  border-radius: 0 0 0.5rem 0.5rem;
+  margin-top: 0;
+  padding: 1rem;
+}
+
+.container-letters h2{
+  padding: 1rem;
+  font-weight: normal;
+}
+
+.correct-letters, .wrong-letters{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1.5rem;
+  height: 100%;
+  background-color: var(--white-color);
+  font-size: 2rem;
+  font-weight: bold;
+  gap: 1rem;
+}
+
+
+.correct-letters span, .wrong-letters span{
+  height: 30px;
+  width: 30px;
+  text-align: center;
+  font-weight: bold;
+  border-bottom: 2px solid #1d1d1d;
+  transition: all 0.2s ease-in-out;
+}
+
+.num-intentos{
+  margin-top: 0.5rem;
+}
+
+
+
+
+
+
+
+
+
+
+/* Container buttons */
+
+.container-buttons{
+  width: 100%;
+}
+
+
+.btn{
+  padding: 2rem;
+  font-size: 1.5rem;
+  border-radius: 1rem;
+  font-weight: bold;
+  margin-right: 2rem;
+  cursor: pointer;
+}
+
+.start-game{
+  background-color: var(--first-color);
+  box-shadow: 3px 4px 4px 4px rgba(0, 0, 0, 0.75);
+}
+
+.start-game:hover{
+  transform: scale(1.2);
+  background-color: var(--second-color);
+  color: var(--white-color);
+  transition: all 0.3s ease-in-out;
+}
+
+.add-word{
+  background-color: var(--second-color);
+  color: var(--white-color);
+  box-shadow: 3px 4px 4px 4px rgba(0, 0, 0, 0.75);
+}
+
+.add-word:hover{
+  transform: scale(1.2);
+  background-color: var(--first-color);
+  color: var(--second-color);
+  transition: all 0.3s ease-in-out;
+}
+
+
+
+
+
+
+
+
+/* Container buttons game*/
+
+.container-buttons-game{
+  width: 100%;
+  padding: 1rem;
+}
+
+.reload-game{
+  background-color: var(--first-color);
+  box-shadow: 3px 4px 4px 4px rgba(0, 0, 0, 0.75);
+}
+
+.reload-game:hover{
+  transform: scale(1.2);
+  background-color: var(--second-color);
+  color: var(--white-color);
+  transition: all 0.3s ease-in-out;
+}
+
+.give-up{
+  background-color: var(--second-color);
+  color: var(--white-color);
+  box-shadow: 3px 4px 4px 4px rgba(0, 0, 0, 0.75);
+}
+
+.give-up:hover{
+  transform: scale(1.2);
+  background-color: var(--first-color);
+  color: var(--second-color);
+  transition: all 0.3s ease-in-out;
+}
+
+
+
+
+
+/* Footer */
+
+footer{
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+}
+
+footer a{
+  margin-left: 3rem;
+}
+
+footer a svg{
+  width: 3rem;
+  height: 3rem;
+}
+
+footer a:hover{
+  transform: scale(1.2);
+}
