@@ -48,8 +48,6 @@ slider.addEventListener('click', () => {
   icon1.classList.toggle('icons-color');
   icon2.classList.toggle('icons-color');
   icon3.classList.toggle('icons-color');
-  containerLetters.classList.toggle('container-letters-color');
-  containerLetters.classList.toggle('container-letters');
   word.classList.toggle('word-color');
   word.classList.toggle('word');
 });
